@@ -60,6 +60,28 @@ class SignUpVC: UITableViewController {
                 print("Registered")
                 self.showAlert("Registered Successfully", "Success")
                 self.stopAnimating()
+                
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                print(UserDefaults.standard.object(forKey: "mobile_token") as! String)
+                
+                if let token = UserDefaults.standard.object(forKey: "mobile_token"){
+                    
+                    API.shared.addMobileToken(parentID: UserStore.loadUser()?.parentId ?? 0, deviceToken: token as! String) { (done) in
+                        if done {
+                            print("Done")
+                        }else{
+                            print("Error")
+                        }
+                        
+                    }
+                }
+                
+                self.present(storyBoard , animated: true)
+                
+                
+                
+                
+                
             }
             else {
                 self.showAlert("Enter valid user", "Warning")

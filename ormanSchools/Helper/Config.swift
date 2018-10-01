@@ -14,7 +14,7 @@ struct URLs {
     
     
     
-    
+
     //(LOGIN)  GET, void login_session(@Query("userName") String usename , @Query("password") String password, Callback<LoginResult> LoginResult)
     static let login = main + "/Login"
     
@@ -61,7 +61,8 @@ struct URLs {
     static let getStdufinical = main + "/GetStdufinical"
     
     
-    
+    static let getNotification = main + "/GetNotificationsByParentId"
+
     
     
     

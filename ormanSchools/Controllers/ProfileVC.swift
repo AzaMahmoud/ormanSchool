@@ -22,6 +22,7 @@ class ProfileVC: BaseSideVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         appenddData()
+        
         print(UserStore.loadUser()?.parentId ?? 0)
         
     }
