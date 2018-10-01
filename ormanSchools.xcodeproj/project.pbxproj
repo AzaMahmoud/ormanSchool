@@ -17,6 +17,10 @@
 		CAC6DF73215925490085BDC0 /* MaterialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC6DF72215925490085BDC0 /* MaterialCell.swift */; };
 		CAC6DF75215936DF0085BDC0 /* Childs.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC6DF74215936DF0085BDC0 /* Childs.swift */; };
 		CAC6DF77215937AE0085BDC0 /* Subjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC6DF76215937AE0085BDC0 /* Subjects.swift */; };
+		CAEF8172216245030051E290 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEF8171216245030051E290 /* Notifications.swift */; };
+		CAEF817421624AF70051E290 /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAEF817321624AF70051E290 /* Notification.storyboard */; };
+		CAEF817621624D640051E290 /* NotifyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEF817521624D640051E290 /* NotifyCell.swift */; };
+		CAEF8178216258B50051E290 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEF8177216258B50051E290 /* NotificationsTableViewController.swift */; };
 		CE068527213BEF8800225031 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE068526213BEF8800225031 /* Config.swift */; };
 		CE068529213BFD1100225031 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE068528213BFD1100225031 /* Request.swift */; };
 		CE06852B213BFE2E00225031 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06852A213BFE2E00225031 /* API.swift */; };
@@ -68,6 +72,10 @@
 		CAC6DF72215925490085BDC0 /* MaterialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialCell.swift; sourceTree = "<group>"; };
 		CAC6DF74215936DF0085BDC0 /* Childs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Childs.swift; sourceTree = "<group>"; };
 		CAC6DF76215937AE0085BDC0 /* Subjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subjects.swift; sourceTree = "<group>"; };
+		CAEF8171216245030051E290 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		CAEF817321624AF70051E290 /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
+		CAEF817521624D640051E290 /* NotifyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyCell.swift; sourceTree = "<group>"; };
+		CAEF8177216258B50051E290 /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
 		CE068526213BEF8800225031 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		CE068528213BFD1100225031 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		CE06852A213BFE2E00225031 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -226,6 +234,7 @@
 				CAC6DF74215936DF0085BDC0 /* Childs.swift */,
 				CAC6DF76215937AE0085BDC0 /* Subjects.swift */,
 				CEF421FC21610DF300D8C45C /* Finance.swift */,
+				CAEF8171216245030051E290 /* Notifications.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,6 +268,8 @@
 				CEF421FA2161024A00D8C45C /* FinancialSituationVC.swift */,
 				CE45168F216263E500B70C90 /* BehaviourVC.swift */,
 				CEF421F4215FA4F200D8C45C /* AttendanceVC.swift */,
+				CAEF817521624D640051E290 /* NotifyCell.swift */,
+				CAEF8177216258B50051E290 /* NotificationsTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -280,6 +291,7 @@
 				CE45168C2162392300B70C90 /* Icon.xcassets */,
 				CE1E5D7821245E4F0049D0B6 /* LaunchScreen.storyboard */,
 				CE1E5D7321245E4E0049D0B6 /* Main.storyboard */,
+				CAEF817321624AF70051E290 /* Notification.storyboard */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -380,6 +392,7 @@
 				CE1E5D7521245E4E0049D0B6 /* Main.storyboard in Resources */,
 				CAC6DF71215924CF0085BDC0 /* MaterialCell.xib in Resources */,
 				CAC6DF6D2159233B0085BDC0 /* SubjectView.xib in Resources */,
+				CAEF817421624AF70051E290 /* Notification.storyboard in Resources */,
 				CEF421B7215A72F900D8C45C /* GoogleService-Info.plist in Resources */,
 				CE45168D2162392500B70C90 /* Icon.xcassets in Resources */,
 			);
@@ -453,6 +466,7 @@
 			files = (
 				CEF421F5215FA4F200D8C45C /* AttendanceVC.swift in Sources */,
 				CE0685452147C71000225031 /* ProfileVC.swift in Sources */,
+				CAEF8178216258B50051E290 /* NotificationsTableViewController.swift in Sources */,
 				CE0685422146B9CE00225031 /* LoginResult.swift in Sources */,
 				CEF421F7215FC7CC00D8C45C /* FinancialCell.swift in Sources */,
 				CE06853A213FCB8500225031 /* ForgetPswrdVC.swift in Sources */,
@@ -471,6 +485,7 @@
 				CAC6DF6821591A4F0085BDC0 /* ChildsTableViewController.swift in Sources */,
 				CE068555214FE64000225031 /* BaseSideVC.swift in Sources */,
 				CE068527213BEF8800225031 /* Config.swift in Sources */,
+				CAEF8172216245030051E290 /* Notifications.swift in Sources */,
 				CAC6DF77215937AE0085BDC0 /* Subjects.swift in Sources */,
 				CE068531213E9D6800225031 /* SWRevealViewController.m in Sources */,
 				CE068529213BFD1100225031 /* Request.swift in Sources */,
@@ -484,6 +499,7 @@
 				CE4DA3262131ACFF00F53651 /* UIViewController.swift in Sources */,
 				CAC6DF6521591A050085BDC0 /* ChildCell.swift in Sources */,
 				CE451690216263E500B70C90 /* BehaviourVC.swift in Sources */,
+				CAEF817621624D640051E290 /* NotifyCell.swift in Sources */,
 				CE4606FE21341BD2001437AC /* LogInVC.swift in Sources */,
 				CAC6DF75215936DF0085BDC0 /* Childs.swift in Sources */,
 				CE06854D214E5CC900225031 /* SchoolNavController.swift in Sources */,
@@ -644,7 +660,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Orman.ormanSchools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/user/Desktop/ormanSchools/ormanSchool/ormanSchools/Helper/orman .h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/doc/Desktop/Projects/Orman School/ormanSchool/ormanSchools/Helper/orman .h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -666,7 +682,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Orman.ormanSchools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/user/Desktop/ormanSchools/ormanSchool/ormanSchools/Helper/orman .h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/doc/Desktop/Projects/Orman School/ormanSchool/ormanSchools/Helper/orman .h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

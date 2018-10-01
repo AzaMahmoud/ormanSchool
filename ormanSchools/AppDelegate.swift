@@ -72,7 +72,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate  , MessagingDelegate{
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         // Convert token to string
         let deviceTokenString = deviceToken.hexString
-        
         InstanceID.instanceID().token()
         // Print it to console
         print("FIRInstanceID device token: \(InstanceID.instanceID().token() ?? "")")
@@ -81,7 +80,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate  , MessagingDelegate{
         // UserData.string(forKey: "UserDeviceToken")
         UserDefaults.standard.setValue("\(InstanceID.instanceID().token() ?? "")", forKey: "mobile_token")
         UserDefaults.standard.synchronize()
-        
         print("mobile_token====>" , UserDefaults.standard.value(forKey: "mobile_token") as Any)
         // Persist it in your backend in case it's new
     }
@@ -128,27 +126,18 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let data = response.notification.request.content.userInfo
+        let accessData = data as! Dictionary<String , AnyObject>
+        print(accessData)
+        print(response.notification.request.content.userInfo)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            let storyBoard = UIStoryboard(name: "Notification", bundle: nil).instantiateViewController(withIdentifier: "NotificationsTableViewController") as! NotificationsTableViewController
+            storyBoard.type = "appDel"
+            let nav = SchoolNavController(rootViewController: storyBoard)
+            self.window?.rootViewController = nav
+        }
         
-        //        if UserUtil.loadUser() != nil {
-        //            let data = response.notification.request.content.userInfo
-        //            let allData = data as! Dictionary<String, AnyObject>
-        //            print("P1:",allData);
-        //            let type: String = allData["type"] as? String ?? "0"
-        //            //            print(type)
-        //            if type == "3" {
-        //                let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        //                let rootVC = storyboard.instantiateViewController(withIdentifier: "HomeTabBarController") as! HomeTabBarController
-        //                rootVC.selectedIndex = 3
-        //                self.window!.rootViewController = rootVC
-        //            }else if type  == "2" || type == "1" || type == "4" {
-        //                let rootVC = UIStoryboard(name: "People", bundle: nil).instantiateViewController(withIdentifier: "MainTableViewController") as! MainTableViewController
-        //                rootVC.pageType = "appDelegete"
-        //                let navigationController = EventsNavigationController(rootViewController: rootVC)
-        //
-        //                self.window!.rootViewController = navigationController
-        //            }
-        //
-        //        }
+
     }
     
     

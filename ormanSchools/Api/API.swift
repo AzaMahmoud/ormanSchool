@@ -171,6 +171,22 @@ class API: NSObject {
     }
 
     
+    func getAllNotification(parentID:Int, closure:@escaping(Bool , [Notifications]) -> Void) {
+        Request.shared.request(url: URLs.getNotification, method: .get, parameters: ["parentId":parentID]) {(data, success, error) in
+            if let error = error{
+                print(error)
+            }
+            if let data = data{
+                print("GetNotificationsByParentIdResult ====== > " , data)
+                let notify = data["GetNotificationsByParentIdResult"].map({Notifications($0.1)})
+                closure(true , notify)
+                
+            }
+            
+        }
+    }
+
+    
     // @POST("/GetStdufinical") void GetAllFinancialdata(@Query("Pda_id") Int stuId, Callback<Getfinancial> GetStdufinicalResult)
     func getStudentFinancial(studId:Int, closure:@escaping(Bool, [Finance]) -> Void) {
         Request.shared.requestJson(url: URLs.getStdufinical, method: .post, parameters: ["Pda_id":studId])

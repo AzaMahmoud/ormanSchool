@@ -69,9 +69,11 @@ class SideMenuVC: UIViewController , UITableViewDelegate , UITableViewDataSource
             storyBoard.typefrom = "HomeWork"
             let nav = SchoolNavController(rootViewController: storyBoard)
             self.revealViewController().pushFrontViewController(nav, animated: true)
-        
         }else if indexPath.row == 7 {
-    
+            let storyBoard = UIStoryboard(name: "Notification", bundle: nil).instantiateViewController(withIdentifier: "NotificationsTableViewController") as! NotificationsTableViewController
+            let nav = SchoolNavController(rootViewController: storyBoard)
+            self.revealViewController().pushFrontViewController(nav, animated: true)
+
         }
         else if indexPath.row == 8 {
             UserStore.removeUser()
