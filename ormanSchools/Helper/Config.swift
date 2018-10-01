@@ -63,7 +63,7 @@ struct URLs {
     
     
     
-    
+    // @POST("/Getstdbehaviour2009android")void GetAllbehaviours(@Query("pda_id") Int stuId,("dtfrom") String datFrom,("dtto") String DatTo, Callback<Getbehaviour> res);
     
     
     
