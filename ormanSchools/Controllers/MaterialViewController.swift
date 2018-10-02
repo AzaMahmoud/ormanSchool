@@ -14,16 +14,19 @@ class MaterialViewController: UIViewController , UIDocumentInteractionController
     
     @IBOutlet weak var subjectLabel: UILabel!
     @IBOutlet weak var subjectButtonOutlet: UIButton!
-   
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     var downloadTask: URLSessionDownloadTask!
     var backgroundSession = URLSession(configuration: .default)
     let saveTypeOfFile = UserDefaults.standard
     let saveTitleOfFile = UserDefaults.standard
     var subjectArray: [Subjects] = []
-
+    var materialsArray: [Materials] = []
     var popover: Popover!
     var students: Students?
     var subjectID:  Int?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +53,10 @@ class MaterialViewController: UIViewController , UIDocumentInteractionController
         self.revealViewController().toggleAnimationType = .spring
         self.revealViewController().frontViewShadowColor = #colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1)
         
+        tableView.alpha = 0
+        tableView.dataSource = self
+        tableView.delegate = self
+        
     }
     
     func menuButton(){
@@ -60,6 +67,28 @@ class MaterialViewController: UIViewController , UIDocumentInteractionController
     func getSubject(_ name: String, _ id: Int) {
         subjectLabel.text = name
         subjectID = id
+        print(id)
+        print(students?.class_id ?? 0)
+        print(students?.grid_id ?? 0)
+        startAnimating()
+        API.init().getMaterials(subjectID: 8614, classID: 0, grid_Id: 315) { (done, materials) in
+            if done {
+                self.materialsArray = materials
+                if self.materialsArray.count == 0 {
+                    self.showAlert("No Materials to this subject", "")
+                }else{
+                    self.tableView.alpha = 1
+                    self.stopAnimating()
+                    self.tableView.reloadData()
+                }
+                
+            }else{
+                self.tableView.alpha = 0
+                self.stopAnimating()
+            }
+        }
+        
+        
     }
 
     
@@ -179,6 +208,28 @@ class MaterialViewController: UIViewController , UIDocumentInteractionController
         
     }
 
+}
+
+extension MaterialViewController: UITableViewDelegate , UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return materialsArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "allMaterialCell") as! AllMaterialCell
+        cell.subjectName.text = materialsArray[indexPath.row].name ?? ""
+        return cell
+    }
+    
+    
+    
+    
+    
 }
 
 

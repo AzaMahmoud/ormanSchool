@@ -133,7 +133,19 @@ class API: NSObject {
         }
     }
     
-    
+    func getMaterials(subjectID:Int , classID: Int , grid_Id: Int , closure:@escaping(Bool , [Materials]) -> Void) {
+        Request.shared.requestJson(url: URLs.getMaterials, method: .post, parameters: ["SubjectID":subjectID , "ClassID" : classID , "Grid_Id": grid_Id ]) {(data, success, error) in
+            if let error = error{
+                print(error)
+            }
+            if let data = data {
+                print("GetFilestStudentResult ====== > " , data)
+                let childs = data["GetFilestStudentResult"].map({Materials($0.1)})
+                closure(true , childs)
+            }
+        }
+    }
+
 
 
     

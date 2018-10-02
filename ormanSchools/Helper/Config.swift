@@ -64,6 +64,11 @@ struct URLs {
     static let getNotification = main + "/GetNotificationsByParentId"
 
     
+    static let getMaterials = main + "/GetFilestStudent"
+    
+    
+
+    
     // @POST("/Getstdbehaviour2009android")void GetAllbehaviours(@Query("pda_id") Int stuId,("dtfrom") String datFrom,("dtto") String DatTo, Callback<Getbehaviour> res);
     
     

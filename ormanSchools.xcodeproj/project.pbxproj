@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5667833FECF81BB8A60451A0 /* Pods_ormanSchools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E0EBB8D935260CAAF6D8A7E /* Pods_ormanSchools.framework */; };
+		CAB6A4D52163747600AA8F82 /* AllMaterialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6A4D42163747600AA8F82 /* AllMaterialCell.swift */; };
+		CAB6A4D72163762400AA8F82 /* Materials.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB6A4D62163762400AA8F82 /* Materials.swift */; };
 		CAC6DF6521591A050085BDC0 /* ChildCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC6DF6421591A050085BDC0 /* ChildCell.swift */; };
 		CAC6DF6821591A4F0085BDC0 /* ChildsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC6DF6721591A4F0085BDC0 /* ChildsTableViewController.swift */; };
 		CAC6DF6A2159213D0085BDC0 /* MaterialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC6DF692159213D0085BDC0 /* MaterialViewController.swift */; };
@@ -63,6 +65,8 @@
 		6E0EBB8D935260CAAF6D8A7E /* Pods_ormanSchools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ormanSchools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AF73BA2C30C39784E8B5E40 /* Pods-ormanSchools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ormanSchools.release.xcconfig"; path = "Pods/Target Support Files/Pods-ormanSchools/Pods-ormanSchools.release.xcconfig"; sourceTree = "<group>"; };
 		8F05F5896F629A48D6F3D0EF /* Pods-ormanSchools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ormanSchools.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ormanSchools/Pods-ormanSchools.debug.xcconfig"; sourceTree = "<group>"; };
+		CAB6A4D42163747600AA8F82 /* AllMaterialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMaterialCell.swift; sourceTree = "<group>"; };
+		CAB6A4D62163762400AA8F82 /* Materials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Materials.swift; sourceTree = "<group>"; };
 		CAC6DF6421591A050085BDC0 /* ChildCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildCell.swift; sourceTree = "<group>"; };
 		CAC6DF6721591A4F0085BDC0 /* ChildsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildsTableViewController.swift; sourceTree = "<group>"; };
 		CAC6DF692159213D0085BDC0 /* MaterialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +239,7 @@
 				CAC6DF76215937AE0085BDC0 /* Subjects.swift */,
 				CEF421FC21610DF300D8C45C /* Finance.swift */,
 				CAEF8171216245030051E290 /* Notifications.swift */,
+				CAB6A4D62163762400AA8F82 /* Materials.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 				CEF421F4215FA4F200D8C45C /* AttendanceVC.swift */,
 				CAEF817521624D640051E290 /* NotifyCell.swift */,
 				CAEF8177216258B50051E290 /* NotificationsTableViewController.swift */,
+				CAB6A4D42163747600AA8F82 /* AllMaterialCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -476,6 +482,7 @@
 				CEF421F92160C08F00D8C45C /* DatePickerViewDialog.swift in Sources */,
 				CE0685472147E28C00225031 /* User.swift in Sources */,
 				CE06853C213FD30900225031 /* ChngePswrdVC.swift in Sources */,
+				CAB6A4D52163747600AA8F82 /* AllMaterialCell.swift in Sources */,
 				CEF421A32151236D00D8C45C /* AddStudentVC.swift in Sources */,
 				CE068536213EA70D00225031 /* SignUpVC.swift in Sources */,
 				CEF421A721578B9400D8C45C /* StudentsCell.swift in Sources */,
@@ -501,6 +508,7 @@
 				CE451690216263E500B70C90 /* BehaviourVC.swift in Sources */,
 				CAEF817621624D640051E290 /* NotifyCell.swift in Sources */,
 				CE4606FE21341BD2001437AC /* LogInVC.swift in Sources */,
+				CAB6A4D72163762400AA8F82 /* Materials.swift in Sources */,
 				CAC6DF75215936DF0085BDC0 /* Childs.swift in Sources */,
 				CE06854D214E5CC900225031 /* SchoolNavController.swift in Sources */,
 				CAC6DF73215925490085BDC0 /* MaterialCell.swift in Sources */,
@@ -660,7 +668,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Orman.ormanSchools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/user/Desktop/ormanSchools/ormanSchool/ormanSchools/Helper/orman .h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/doc/Desktop/Projects/Orman School/ormanSchool/ormanSchools/Helper/orman .h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -682,7 +690,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Orman.ormanSchools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/user/Desktop/ormanSchools/ormanSchool/ormanSchools/Helper/orman .h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/doc/Desktop/Projects/Orman School/ormanSchool/ormanSchools/Helper/orman .h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
