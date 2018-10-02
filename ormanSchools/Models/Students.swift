@@ -17,7 +17,7 @@ class Students: NSObject{
     var grid_id : Int?
     
     required init(_ data : JSON){
-        class_id = data["class_id"].int
+        class_id = data["Class_id"].int
         ParentId = data["ParentId"].int
         StudentId = data["StudentId"].int
         StudentName = data["StudentName"].string

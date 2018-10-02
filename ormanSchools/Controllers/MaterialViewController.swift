@@ -22,8 +22,8 @@ class MaterialViewController: UIViewController , UIDocumentInteractionController
     var subjectArray: [Subjects] = []
 
     var popover: Popover!
-   // var child: Childs?
     var students: Students?
+    var subjectID:  Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +59,7 @@ class MaterialViewController: UIViewController , UIDocumentInteractionController
 
     func getSubject(_ name: String, _ id: Int) {
         subjectLabel.text = name
+        subjectID = id
     }
 
     

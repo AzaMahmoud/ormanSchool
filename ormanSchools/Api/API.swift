@@ -120,18 +120,18 @@ class API: NSObject {
     }
 
     
-//    func getParentStudents(parentId:Int, closure:@escaping(Bool , [Childs]) -> Void) {
-//        Request.shared.requestJson(url: URLs.getParentsStudents, method: .post, parameters: ["Parent_Id":parentId]) {(data, success, error) in
-//            if let error = error{
-//                print(error)
-//            }
-//            if let data = data {
-//                print("getStudents ====== > " , data)
-//                let childs = data["GetAllStudenByParentIdResult"].map({Childs($0.1)})
-//                closure(true , childs)
-//            }
-//        }
-//    }
+    func getParentStudents(parentId:Int, closure:@escaping(Bool , [Students]) -> Void) {
+        Request.shared.requestJson(url: URLs.getParentsStudents, method: .post, parameters: ["Parent_Id":parentId]) {(data, success, error) in
+            if let error = error{
+                print(error)
+            }
+            if let data = data {
+                print("getStudents ====== > " , data)
+                let childs = data["GetAllStudenByParentIdResult"].map({Students($0.1)})
+                closure(true , childs)
+            }
+        }
+    }
     
     
 

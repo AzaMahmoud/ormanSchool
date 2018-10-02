@@ -21,27 +21,9 @@ class ChildsTableViewController: BaseSideTableVC {
         print(UserStore.loadUser()?.parentId ?? 0)
     }
     
-//    func setupUI(){
-//      //  title = "Childerns"
-//        menuButton()
-//        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-//        self.revealViewController().rearViewRevealWidth = 300
-//        self.revealViewController().rearViewRevealDisplacement = 50
-//        self.revealViewController().toggleAnimationDuration = 0.5
-//        self.revealViewController().toggleAnimationType = .spring
-//        self.revealViewController().frontViewShadowColor = #colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1)
-//
-//    }
-    
-//    func menuButton(){
-//        let barButton = UIBarButtonItem(image: #imageLiteral(resourceName: "menu") , style: .plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(animated:)))
-//        self.navigationItem.setLeftBarButton(barButton, animated: true)
-//    }
-   // getParentStudents
-    
     func loadData(){
         startAnimating()
-        API.init().getStudent(parentId: UserStore.loadUser()?.parentId ?? 0)
+        API.init().getParentStudents(parentId: UserStore.loadUser()?.parentId ?? 0)
         {(done ,childs) in
             if done {
                 self.parentStuentArry = childs

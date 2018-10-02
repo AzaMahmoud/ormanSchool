@@ -47,7 +47,7 @@ struct URLs {
     // @GET("/DeleteStudentByParentId") void DeleteStudentByParentId_session(@Query("parentId") Integer parentId, @Query("studentId") Integer studentId, Callback<DeleteStudentByParentIdResult> DeleteStudentByParentIdResult)
     static let deletStudent = main + "/DeleteStudentByParentId"
 
-       // static let getParentsStudents = main + "/GetAllStudenByParentId"
+    static let getParentsStudents = main + "/GetAllStudenByParentId"
 
     static let getSubjects = main + "/GetSubject"
     
