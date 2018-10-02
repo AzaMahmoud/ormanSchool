@@ -14,11 +14,14 @@ class Materials: NSObject{
     var fileID : Int?
     var name : String?
     var url : String?
+    var contentType : String?
     
     required init(_ data : JSON){
         fileID = data["FileID"].int
         name = data["Name"].string
         url = data["Url"].string
+        contentType = data["ContentType"].string
+
     }
     
 }

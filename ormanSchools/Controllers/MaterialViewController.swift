@@ -19,8 +19,8 @@ class MaterialViewController: UIViewController , UIDocumentInteractionController
     
     var downloadTask: URLSessionDownloadTask!
     var backgroundSession = URLSession(configuration: .default)
-    let saveTypeOfFile = UserDefaults.standard
     let saveTitleOfFile = UserDefaults.standard
+    let saveTypeOfFile = UserDefaults.standard
     var subjectArray: [Subjects] = []
     var materialsArray: [Materials] = []
     var popover: Popover!
@@ -75,6 +75,7 @@ class MaterialViewController: UIViewController , UIDocumentInteractionController
             if done {
                 self.materialsArray = materials
                 if self.materialsArray.count == 0 {
+                    self.tableView.alpha = 0
                     self.showAlert("No Materials to this subject", "")
                 }else{
                     self.tableView.alpha = 1
@@ -102,6 +103,7 @@ class MaterialViewController: UIViewController , UIDocumentInteractionController
             let viewer = UIDocumentInteractionController(url: URL(fileURLWithPath: path))
             viewer.delegate = self
             viewer.presentPreview(animated: true)
+            stopAnimating()
         }
     }
 
@@ -113,30 +115,14 @@ class MaterialViewController: UIViewController , UIDocumentInteractionController
 
     func cutString(_ url: String) -> String {
         print(url)
-        let index = url.index(of: ".")!
-        let newStr = url[index...]
-        
+        let sub = url.replacingOccurrences(of: "/", with: ".")
+        let index = sub.index(of: ".")!
+        let newStr = sub[index...]
         print(newStr)
         return String(newStr)
     }
 
-    @IBAction func download(_ sender: UIButton) {
-        //        indexDownloadObject = sender.tag
-        if downloadTask != nil{
-            downloadTask.cancel()
-        }else{
-            
-            let url = URL(string: "http://www.mywebsite.com/myfile.pdf")
-            print(url!)
-////            saveTypeOfFile.set(type, forKey:"typeofFile")
-//            saveTitleOfFile.set(url, forKey: "titleOfFile")
-            downloadTask = backgroundSession.downloadTask(with: url!)
-            downloadTask.resume()
-        }
-        
-    }
     
-
     //MARK: URLSessionDownloadDelegate
     func urlSession(_ session: URLSession,
                     downloadTask: URLSessionDownloadTask,
@@ -145,8 +131,12 @@ class MaterialViewController: UIViewController , UIDocumentInteractionController
         let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
         let documentDirectoryPath:String = path[0]
         let fileManager = FileManager()
-        let destinationURLForFile = URL(fileURLWithPath: documentDirectoryPath.appendingFormat("C.W&H.W sheet 9 May.pdf"))
-        
+        let titleDocument = saveTitleOfFile.string(forKey: "titleOfFile") ?? ""
+        let typeoffiletodownload = saveTypeOfFile.string(forKey: "typeofFile") ?? ""
+        print(titleDocument)
+        print(typeoffiletodownload)
+        let destinationURLForFile = URL(fileURLWithPath: documentDirectoryPath.appendingFormat("\(titleDocument)"))
+
         if fileManager.fileExists(atPath: destinationURLForFile.path){
             showFileWithPath(path: destinationURLForFile.path)
         }
@@ -173,9 +163,7 @@ class MaterialViewController: UIViewController , UIDocumentInteractionController
         let prefix = bytesStr.prefix(2)
         bytesStr = String(prefix)
         let byteFloat = Float(bytesStr)
-        
         print(CGFloat(byteFloat ?? 0) , "   "  , CGFloat(totalBytesExpectedToWrite))
-        
     }
     
     //MARK: URLSessionTaskDelegate
@@ -191,8 +179,6 @@ class MaterialViewController: UIViewController , UIDocumentInteractionController
         }
     }
 
-    
-    
     func loadData(){
         startAnimating()
         API.init().getSubject(gridId: students?.grid_id ?? 0)
@@ -223,10 +209,29 @@ extension MaterialViewController: UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "allMaterialCell") as! AllMaterialCell
         cell.subjectName.text = materialsArray[indexPath.row].name ?? ""
+        cell.downloadButton.tag = indexPath.row
+        cell.downloadButton.addTarget(self, action: #selector(download), for: .touchUpInside)
+        
         return cell
     }
     
-    
+    @objc func download(_ sender: UIButton) {
+        if downloadTask != nil{
+            downloadTask.cancel()
+        }else{
+            let nameOFFile = materialsArray[sender.tag].url?.dropFirst(6)
+            let url = URL(string: "http://167.114.174.82/files/\(nameOFFile?.replacingOccurrences(of: " ", with: "%20") ?? "")")
+            print(url!)
+            print(cutString(materialsArray[sender.tag].contentType ?? ""))
+            saveTypeOfFile.set(cutString(materialsArray[sender.tag].contentType ?? ""), forKey:"typeofFile")
+            saveTitleOfFile.set(materialsArray[sender.tag].name?.replacingOccurrences(of: " ", with: "-"), forKey: "titleOfFile")
+            startAnimating()
+            downloadTask = backgroundSession.downloadTask(with: url!)
+            downloadTask.resume()
+        }
+        
+    }
+
     
     
     
@@ -246,3 +251,10 @@ extension MaterialViewController {
         }
     }
 }
+
+extension String {
+    func removingWhitespaces() -> String {
+        return components(separatedBy: .whitespaces).joined()
+    }
+}
+
