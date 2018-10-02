@@ -660,7 +660,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Orman.ormanSchools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/doc/Desktop/Projects/Orman School/ormanSchool/ormanSchools/Helper/orman .h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/user/Desktop/ormanSchools/ormanSchool/ormanSchools/Helper/orman .h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -682,7 +682,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Orman.ormanSchools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/doc/Desktop/Projects/Orman School/ormanSchool/ormanSchools/Helper/orman .h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/user/Desktop/ormanSchools/ormanSchool/ormanSchools/Helper/orman .h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

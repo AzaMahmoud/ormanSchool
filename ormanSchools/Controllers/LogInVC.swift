@@ -48,7 +48,6 @@ class LogInVC: UIViewController {
                 print("loggedIn")
                 self.stopAnimating()
                 let storyBoard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-                print(UserDefaults.standard.object(forKey: "mobile_token") as! String)
                 
                 if let token = UserDefaults.standard.object(forKey: "mobile_token"){
                     
