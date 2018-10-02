@@ -13,7 +13,7 @@ class ChildsTableViewController: BaseSideTableVC {
 
     var parentStuentArry: [Students] = []
     var typefrom = ""
-    
+    var studId: Int?
     override func viewDidLoad() {
         super.viewDidLoad()
        // setupUI()
@@ -53,6 +53,7 @@ class ChildsTableViewController: BaseSideTableVC {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "childCell", for: indexPath) as! ChildCell
+        
         cell.childName.text = parentStuentArry[indexPath.row].StudentName ?? ""
         return cell
     }
@@ -68,7 +69,19 @@ class ChildsTableViewController: BaseSideTableVC {
             let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FinancialSituationVC") as! FinancialSituationVC
             let nav = SchoolNavController(rootViewController: viewController)
             self.revealViewController().pushFrontViewController(nav, animated: true)
+            studId = parentStuentArry[indexPath.row].StudentId ?? 0
+            viewController.stuId = studId
+        }
+        else if (typefrom == "Behaviour"){
+            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BehaviourVC") as! BehaviourVC
+            let nav = SchoolNavController(rootViewController: viewController)
+            self.revealViewController().pushFrontViewController(nav, animated: true)
+            studId = parentStuentArry[indexPath.row].StudentId ?? 0
+            viewController.stuId = studId
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
 }

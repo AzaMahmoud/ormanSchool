@@ -12,8 +12,8 @@ class SideMenuVC: UIViewController , UITableViewDelegate , UITableViewDataSource
 
     @IBOutlet weak var tableView: UITableView!
     
-    let menuTitle = ["Profile" , "Students" , "Financial Situation" , "Attendence" , "Academic Report" , "Homework" , "Notification" , "Logout"]
-    let imageTitle = ["sideIcon" , "sideIcon" ,"sideIcon" , "sideIcon", "sideIcon" , "sideIcon" , "sideIcon", "sideIcon", "sideIcon"]
+    let menuTitle = ["Profile" , "Students" , "Financial Situation" , "Behaviour" , "Attendence" , "Academic Report" , "Homework" , "Notification" , "Logout"]
+    let imageTitle = ["sideIcon" , "sideIcon" ,"sideIcon" , "sideIcon", "sideIcon" , "sideIcon" , "sideIcon", "sideIcon", "sideIcon" , "sideIcon"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,22 +55,27 @@ class SideMenuVC: UIViewController , UITableViewDelegate , UITableViewDataSource
             let nav = SchoolNavController(rootViewController: storyBoard)
             self.revealViewController().pushFrontViewController(nav, animated: true)
         }else if indexPath.row == 3 {
-            
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChildsTableViewController") as! ChildsTableViewController
+            storyBoard.typefrom = "Behaviour"
+            let nav = SchoolNavController(rootViewController: storyBoard)
+            self.revealViewController().pushFrontViewController(nav, animated: true)
         }else if indexPath.row == 4 {
             
         }else if indexPath.row == 5 {
+            
+            
+        }else if indexPath.row == 6 {
             let storyBoard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChildsTableViewController") as! ChildsTableViewController
             storyBoard.typefrom = "HomeWork"
             let nav = SchoolNavController(rootViewController: storyBoard)
             self.revealViewController().pushFrontViewController(nav, animated: true)
-            
-        }else if indexPath.row == 6 {
+        }else if indexPath.row == 7 {
             let storyBoard = UIStoryboard(name: "Notification", bundle: nil).instantiateViewController(withIdentifier: "NotificationsTableViewController") as! NotificationsTableViewController
             let nav = SchoolNavController(rootViewController: storyBoard)
             self.revealViewController().pushFrontViewController(nav, animated: true)
 
         }
-        else if indexPath.row == 7 {
+        else if indexPath.row == 8 {
             UserStore.removeUser()
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "LogInVC") as! LogInVC

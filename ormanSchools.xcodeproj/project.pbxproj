@@ -43,6 +43,7 @@
 		CE1E5D7721245E4F0049D0B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1E5D7621245E4F0049D0B6 /* Assets.xcassets */; };
 		CE1E5D7A21245E4F0049D0B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE1E5D7821245E4F0049D0B6 /* LaunchScreen.storyboard */; };
 		CE45168D2162392500B70C90 /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE45168C2162392300B70C90 /* Icon.xcassets */; };
+		CE451690216263E500B70C90 /* BehaviourVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE45168F216263E500B70C90 /* BehaviourVC.swift */; };
 		CE4606FE21341BD2001437AC /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4606FD21341BD2001437AC /* LogInVC.swift */; };
 		CE476483214FF3C80065665A /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE476482214FF3C80065665A /* SideMenuCell.swift */; };
 		CE4DA3262131ACFF00F53651 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4DA3252131ACFF00F53651 /* UIViewController.swift */; };
@@ -101,6 +102,7 @@
 		CE1E5D7921245E4F0049D0B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE1E5D7B21245E4F0049D0B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE45168C2162392300B70C90 /* Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icon.xcassets; sourceTree = "<group>"; };
+		CE45168F216263E500B70C90 /* BehaviourVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaviourVC.swift; sourceTree = "<group>"; };
 		CE4606FD21341BD2001437AC /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
 		CE476482214FF3C80065665A /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
 		CE4DA3252131ACFF00F53651 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
@@ -207,9 +209,20 @@
 				CEAC4E3D21319491004C3AAE /* Helper */,
 				CEAC4E3721318DB2004C3AAE /* Custom Views */,
 				CEAC4E3921318E20004C3AAE /* Supporting Files */,
+				CE45168E21623B1900B70C90 /* Cells */,
 				CEAC4E3821318DC8004C3AAE /* Controllers */,
 			);
 			path = ormanSchools;
+			sourceTree = "<group>";
+		};
+		CE45168E21623B1900B70C90 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CE476482214FF3C80065665A /* SideMenuCell.swift */,
+				CEF421A621578B9400D8C45C /* StudentsCell.swift */,
+				CEF421F6215FC7CC00D8C45C /* FinancialCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		CEAC4E3621318D8B004C3AAE /* Models */ = {
@@ -248,15 +261,13 @@
 				CE06853B213FD30900225031 /* ChngePswrdVC.swift */,
 				CE0685442147C71000225031 /* ProfileVC.swift */,
 				CE06854E214FC3C900225031 /* SideMenuVC.swift */,
-				CE476482214FF3C80065665A /* SideMenuCell.swift */,
 				CEF421A22151236D00D8C45C /* AddStudentVC.swift */,
-				CEF421A621578B9400D8C45C /* StudentsCell.swift */,
 				CAC6DF6421591A050085BDC0 /* ChildCell.swift */,
 				CAC6DF6721591A4F0085BDC0 /* ChildsTableViewController.swift */,
 				CAC6DF692159213D0085BDC0 /* MaterialViewController.swift */,
-				CEF421F4215FA4F200D8C45C /* AttendanceVC.swift */,
-				CEF421F6215FC7CC00D8C45C /* FinancialCell.swift */,
 				CEF421FA2161024A00D8C45C /* FinancialSituationVC.swift */,
+				CE45168F216263E500B70C90 /* BehaviourVC.swift */,
+				CEF421F4215FA4F200D8C45C /* AttendanceVC.swift */,
 				CAEF817521624D640051E290 /* NotifyCell.swift */,
 				CAEF8177216258B50051E290 /* NotificationsTableViewController.swift */,
 			);
@@ -487,6 +498,7 @@
 				CAC6DF6F2159236D0085BDC0 /* SubjectView.swift in Sources */,
 				CE4DA3262131ACFF00F53651 /* UIViewController.swift in Sources */,
 				CAC6DF6521591A050085BDC0 /* ChildCell.swift in Sources */,
+				CE451690216263E500B70C90 /* BehaviourVC.swift in Sources */,
 				CAEF817621624D640051E290 /* NotifyCell.swift in Sources */,
 				CE4606FE21341BD2001437AC /* LogInVC.swift in Sources */,
 				CAC6DF75215936DF0085BDC0 /* Childs.swift in Sources */,
@@ -648,7 +660,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Orman.ormanSchools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/doc/Desktop/Projects/Orman School/ormanSchool/ormanSchools/Helper/orman .h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/user/Desktop/ormanSchools/ormanSchool/ormanSchools/Helper/orman .h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -670,7 +682,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Orman.ormanSchools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/doc/Desktop/Projects/Orman School/ormanSchool/ormanSchools/Helper/orman .h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/user/Desktop/ormanSchools/ormanSchool/ormanSchools/Helper/orman .h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
